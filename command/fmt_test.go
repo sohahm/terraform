@@ -246,6 +246,9 @@ func TestFmt_check(t *testing.T) {
 		t.Fatalf("wrong exit code. expected 3")
 	}
 
+	// In CI some paths are normalized and stuff (fix this comment later)
+	tempDir = c.normalizePath(tempDir)
+
 	if actual := ui.OutputWriter.String(); !strings.Contains(actual, tempDir) {
 		t.Fatalf("expected:\n%s\n\nto include: %q", actual, tempDir)
 	}
