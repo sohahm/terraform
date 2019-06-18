@@ -228,6 +228,7 @@ func TestFmt_nonDefaultOptions(t *testing.T) {
 
 func TestFmt_check(t *testing.T) {
 	tempDir := fmtFixtureWriteDir(t)
+	fmt.Println("in test", tempDir)
 
 	ui := new(cli.MockUi)
 	c := &FmtCommand{
@@ -289,6 +290,7 @@ var fmtFixture = struct {
 
 func fmtFixtureWriteDir(t *testing.T) string {
 	dir := testTempDir(t)
+	fmt.Println(dir)
 
 	err := ioutil.WriteFile(filepath.Join(dir, fmtFixture.filename), fmtFixture.input, 0644)
 	if err != nil {
